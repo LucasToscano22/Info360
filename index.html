@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewsToday - Últimas Notícias</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS Personalizado incorporado -->
+  <style>
+    /* Estilos personalizados */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      border-bottom: 2px solid #444;
+    }
+
+    /* Estilo do filtro de categoria */
+    .form-select {
+      width: auto;
+      max-width: 200px;
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    /* Efeito de hover nos cards */
+    .card {
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; /* Necessário para o stretched-link funcionar */
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Garantir que o link stretched funcione corretamente */
+    .stretched-link::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      content: "";
+    }
+
+    /* Espaçamento interno para a imagem no card principal */
+    .card .col-md-6.p-3 img {
+      margin: 10px; /* Adiciona margem para a imagem não tocar nas bordas */
+    }
+
+    .highlight {
+      background-color: #f8f9fa;
+    }
+
+    footer {
+      border-top: 2px solid #444;
+    }
+
+    footer a:hover {
+      opacity: 0.8;
+    }
+
+    /* tooltip-container e estilo do tooltip */
+    .tooltip-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    .tooltip-container svg {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      margin-left: 10px;
+    }
+
+    .tooltip-container .tooltip-text {
+      visibility: hidden; /* Esconde a mensagem por padrão */
+      width: 120px;
+      background-color: #333; /* Cor de fundo original (cinza escuro) */
+      color: #fff; /* Cor do texto branco */
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 30px;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    /* Exibe a mensagem somente ao passar o mouse sobre o SVG */
+    .tooltip-container svg:hover + .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Estilo para o mini header */
+    .mini-header {
+      background-color: #0a3a69; /* Cor de fundo escura */
+      padding: 2px 0;
+      border-bottom: 2px solid #444;
+      height: 40px;
+    }
+
+    .mini-header .nav-link {
+      color: white !important;
+      padding: 5px 15px;
+      border-radius: 5px;
+    }
+
+    .mini-header .nav-link:hover {
+      background-color: #495057; /* Cor de fundo ao passar o mouse */
+    }
+    .alert-success {
+        margin-top: 10px;
+        
+    }
+    .social_svg{
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-primary text-white py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="Captura de tela 2025-02-03 193123.png" alt="NewsToday Logo" class="img-fluid" style="max-height: 50px;">
+        </div>
+
+        <!-- Barra de Pesquisa Centralizada -->
+        <div class="d-flex justify-content-center flex-grow-1 mx-3">
+            <form class="d-flex w-100" role="search" style="max-width: 500px;">
+              <input class="form-control me-2" type="search" placeholder="Pesquisar notícias..." aria-label="Pesquisar">
+              <button class="btn btn-outline-light" type="submit">Pesquisar</button>
+            </form>
+          </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mini Header -->
+  <div class="mini-header">
+    <div class="container">
+      <nav class="nav justify-content-center">
+        <a href="#" class="nav-link">Últimas Notícias</a>
+        <a href="#" class="nav-link">Política</a>
+        <a href="#" class="nav-link">Economia</a>
+        <a href="#" class="nav-link">Tecnologia</a>
+        <a href="#" class="nav-link">Esportes</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <main class="container my-5">
+    <h1 class="mb-4">Últimas Notícias</h1>
+
+    <!-- Card de Notícia Principal -->
+    <div class="card mb-4">
+      <a href="#" class="text-decoration-none text-dark stretched-link">
+        <div class="row g-0">
+          <!-- Imagem da Notícia Principal -->
+          <div class="col-md-6 p-3">
+            <img src="https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg" class="img-fluid rounded" alt="Imagem da Notícia Principal">
+          </div>
+          <!-- Conteúdo da Notícia Principal -->
+          <div class="col-md-6">
+            <div class="card-body">
+              <h2 class="card-title">Notícia Principal</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad deleniti earum sint voluptatem temporibus suscipit perspiciatis sequi cupiditate eaque. Ipsum autem nobis libero dolores ut distinctio nulla ratione id ducimus.</p>
+              <small class="text-muted">Publicado há 2 horas</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Filtro de Ordenação -->
+    <div class="mb-4">
+      <label for="category-filter" class="form-label">Ordenar por:</label>
+      <select id="category-filter" class="form-select" style="width: auto;">
+        <option value="recent">Mais Recentes</option>
+        <option value="oldest">Mais Antigas</option>
+        <option value="relevant">Mais Relevantes</option>
+        <option value="popular">Mais Populares</option>
+        <option value="commented">Mais Comentadas</option>
+      </select>
+    </div>
+
+    <!-- Cards de Notícias -->
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <a href="#" class="text-decoration-none text-dark stretched-link">
+            <img src="https://images.pexels.com/photos/3148452/pexels-photo-3148452.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-img-top" alt="Imagem da Notícia 1">
+            <div class="card-body">
+              <h2 class="card-title">Notícia X</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <small class="text-muted">Publicado há 3 horas</small>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <a href="#" class="text-decoration-none text-dark stretched-link">
+            <img src="https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-img-top" alt="Imagem da Notícia 2">
+            <div class="card-body">
+              <h2 class="card-title">Notícia X</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <small class="text-muted">Publicado há 5 horas</small>
+            </div>
+          </a>
+        </div>  
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <a href="#" class="text-decoration-none text-dark stretched-link">
+            <img src="https://images.pexels.com/photos/2834173/pexels-photo-2834173.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-img-top" alt="Imagem da Notícia 3">
+            <div class="card-body">
+              <h2 class="card-title">Notícia X</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <small class="text-muted">Publicado há 1 dia</small>
+            </div>  
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <a href="#" class="text-decoration-none text-dark stretched-link">
+            <img src="https://images.pexels.com/photos/3230538/pexels-photo-3230538.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-img-top" alt="Imagem da Notícia 4">
+            <div class="card-body">
+              <h2 class="card-title">Notícia X</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <small class="text-muted">Publicado há 2 dias</small>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão "Carregar Mais Notícias" -->
+    <div class="d-grid mt-4">
+      <button type="button" class="btn btn-outline-secondary">Carregar Mais Notícias</button>
+    </div>
+
+    <!-- Seção de Destaque -->
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>Links Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none">Sobre Nós</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Termos de Uso e Política de Privacidade</a></li>    
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Redes Sociais</h5>
+          <div class="d-flex">
+            <svg class="social_svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+              </svg>
+            <svg class="social_svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+              </svg>
+              <svg class="social_svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+              </svg>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5>Assine Nossa Newsletter</h5>
+          <form>
+            <input type="email" placeholder="Digite seu e-mail" class="form-control mb-2">
+            <div class="tooltip-container">
+            <input type="checkbox" id="showAlert" class="btn-check" autocomplete="off">
+            <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#alertDiv" aria-expanded="false" aria-controls="alertDiv">
+                Assinar
+              </button>
+              <!-- Tooltip com SVG de Exclamação -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4v.01M12 2.25c5.315 0 9.75 4.434 9.75 9.75 0 5.315-4.435 9.75-9.75 9.75-5.316 0-9.75-4.435-9.75-9.75 0-5.316 4.434-9.75 9.75-9.75z"/>
+              </svg>
+              <div class="tooltip-text">Preencha seu e-mail para assinar nossa newsletter!</div>
+              <div class="alert alert-success alert-dismissible fade collapse" id="alertDiv" role="alert">
+                <strong>Você agora está inscrito na newsletter.</strong> Fique ligado para receber as últimas novidades diretamente no seu e-mail.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>    
+    </div>  
+  </footer>
+
+  <!-- Bootstrap JS e dependências -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
